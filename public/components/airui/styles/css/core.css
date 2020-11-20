@@ -1,0 +1,22 @@
+:root {
+    --kit-color-primary: #1b55e3;
+    --kit-font-family: 'Source Sans Pro', sans-serif;
+}
+
+html {
+    font-size: 15px;
+}
+
+@media (max-width: 575px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+body {
+    font-family: var(--kit-font-family);
+}
+
+[data-kit-theme='dark'] body {
+    background: #12112c;
+}

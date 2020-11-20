@@ -1,0 +1,26 @@
+FROM node:14-alpine as builder
+
+# Set the working directory.
+#RUN  mkdir /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json .
+COPY package-lock.json .
+RUN npm install --only=prod
+RUN npm install -g pkg
+COPY backend backend
+RUN pkg  backend/index.js --output APP
+
+FROM alpine
+COPY --from=builder /usr/src/app/APP /APP
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=3030
+ENV DB_CONNECTION_URI=localhost:27017/db
+ENV ELASTIC_SEARCH=
+ENV ELASTIC_INDEX=
+
+EXPOSE 3030
+
+CMD [ "/APP" ]
+# Copy the file from your host to your current location.

@@ -1,0 +1,14 @@
+/node_modules/
+.idea/.gitignore
+.idea/base-project.iml
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+/dist/
+local_data/
+.log/
+**/node_modules/
+.idea
+**/.cache
+**/dist
