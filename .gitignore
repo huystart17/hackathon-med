@@ -12,3 +12,4 @@ local_data/
 .idea
 **/.cache
 **/dist
+data
