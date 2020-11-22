@@ -59,33 +59,34 @@ const Handle = {
         await fs.promises.rename(oldPath, newPath);
         let splitImgDir = NodeHelper.getPathFromProject(`data/public/process/${fileName}`);
         await fs.promises.mkdir(splitImgDir, { recursive: true });
-        let fps = 1;
-        await NodeHelper.runCmd(`ffmpeg -i ${newPath} -vf fps=${fps} ${splitImgDir}/out%04d.png`);
+        let fps = 24;
+        // await NodeHelper.runCmd(`ffmpeg -i ${newPath} -vf fps=${fps} ${splitImgDir}/out%04d.png`);
         let filesToAnalyze = await fs.promises.readdir(splitImgDir);
         let images = [];
-        for (let i = 0; i < filesToAnalyze.length; i++) {
-            let file = filesToAnalyze[i];
-            const form = new FormData();
-            form.append('image', fs.createReadStream(path.join(splitImgDir, file)));
-            let delta_time = Date.now();
-            let { body } = await got.post(`${API_URL}/api`, {
-                body: form,
-                responseType: 'json',
-            });
 
-            delta_time = Date.now() - delta_time;
-            let mask_path = `${API_URL}/static/images/${body.mask_path}`;
-            let bb_path = `${API_URL}/static/images/${body.bb_path}`;
-            await got.stream(bb_path).pipe(fs.createWriteStream(path.join(splitImgDir, `bb_${file}`)));
-            await got.stream(mask_path).pipe(fs.createWriteStream(path.join(splitImgDir, `mask_${file}`)));
-            images.push({ mask_path, bb_path, filename: file, delta_time });
-        }
-        await NodeHelper.runCmd(
-            `cd ${splitImgDir} && ffmpeg -r ${fps} -i bb_out%04d.png -c:v libx264 -vf fps=1 -pix_fmt yuv420p bb_out.mp4`
-        );
-        await NodeHelper.runCmd(
-            `cd ${splitImgDir} && ffmpeg -r ${fps} -i mask_out%04d.png -c:v libx264 -vf fps=1 -pix_fmt yuv420p mask_out.mp4`
-        );
+        // for (let i = 0; i < filesToAnalyze.length; i++) {
+        //     let file = filesToAnalyze[i];
+        //     const form = new FormData();
+        //     form.append('image', fs.createReadStream(path.join(splitImgDir, file)));
+        //     let delta_time = Date.now();
+        //     let { body } = await got.post(`${API_URL}/api`, {
+        //         body: form,
+        //         responseType: 'json',
+        //     });
+        //
+        //     delta_time = Date.now() - delta_time;
+        //     let mask_path = `${API_URL}/static/images/${body.mask_path}`;
+        //     let bb_path = `${API_URL}/static/images/${body.bb_path}`;
+        //     await got.stream(bb_path).pipe(fs.createWriteStream(path.join(splitImgDir, `bb_${file}`)));
+        //     await got.stream(mask_path).pipe(fs.createWriteStream(path.join(splitImgDir, `mask_${file}`)));
+        //     images.push({ mask_path, bb_path, filename: file, delta_time });
+        // }
+        // await NodeHelper.runCmd(
+        //     `cd ${splitImgDir} && ffmpeg -r ${fps} -i bb_out%04d.png -c:v libx264 -vf fps=1 -pix_fmt yuv420p bb_out.mp4`
+        // );
+        // await NodeHelper.runCmd(
+        //     `cd ${splitImgDir} && ffmpeg -r ${fps} -i mask_out%04d.png -c:v libx264 -vf fps=1 -pix_fmt yuv420p mask_out.mp4`
+        // );
         let videos = {
             original_video_path: `/data/public/process/${fileName}.${fileExtension}`,
             bb_video_path: `/data/public/process/${fileName}/bb_out.mp4`,

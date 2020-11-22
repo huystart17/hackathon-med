@@ -7,6 +7,9 @@ const DefaultLocalData = {
             original_video_path: '',
             bb_video_path: '',
             mask_video_path: '',
+            // original_video_path: '/data/public/process/5fb9daaedf29d991a936935b.mp4',
+            // bb_video_path: '/data/public/process/5fb9daaedf29d991a936935b/bb_out.mp4',
+            // mask_video_path: '/data/public/process/5fb9daaedf29d991a936935b/mask_out.mp4',
         },
     },
     videoDom: null,
@@ -24,7 +27,14 @@ const Action = {
             body: LocalData.formData,
             url: '/med/analyze/polyb-video',
         });
-        LocalData.data = { ...response.data };
+        // LocalData.data = { ...response.data };
+        LocalData.data = {
+            videos: {
+                original_video_path: '/data/public/process/5fb9daaedf29d991a936935b.mp4',
+                bb_video_path: '/data/public/process/5fb9daaedf29d991a936935b/bb_out.mp4',
+                mask_video_path: '/data/public/process/5fb9daaedf29d991a936935b/mask_out.mp4',
+            },
+        };
         m.redraw();
         await ClientHelper.wait(1000);
         return response;
@@ -52,6 +62,9 @@ export const PagePolybVideoAnalyze = {
                                 src: LocalData.data.videos.original_video_path,
                                 // controls: 'controls',
                                 autoplay: 'autoplay',
+                                oncreate({ dom }) {
+                                    dom.play();
+                                },
                             }),
 
                         !LocalData.data.videos.original_video_path &&
@@ -65,6 +78,11 @@ export const PagePolybVideoAnalyze = {
                                         LocalData.formData.append('video', file);
                                         ClientHelper.doAction(Action.upload);
                                     },
+                                    oncreate({ dom }) {
+                                        $(dom).dropify({ minHeight: '300px' });
+                                    },
+                                    class: 'dropify',
+
                                     accept: 'video/*',
                                 })
                             )
@@ -88,6 +106,9 @@ export const PagePolybVideoAnalyze = {
                                 m('video', {
                                     loop: true,
                                     autoplay: 'autoplay',
+                                    oncreate({ dom }) {
+                                        dom.play();
+                                    },
                                     src: LocalData.data.videos.bb_video_path,
                                 })
                             )
