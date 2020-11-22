@@ -2,7 +2,7 @@
 
 
 Để xem mô hình ai tại:
-1. Giải nén file ```polypd_detection.tar```
+1. Mở thư mục ```polypd_detection```
 2. Xem file ```model.py``` , 
 3. Checkpoint huấn luyện được lưu tại ```model_pretrained```
 
