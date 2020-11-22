@@ -8,7 +8,7 @@ const DistAssets = new Koa();
 DistAssets.use(serve('./dist'));
 
 
-const OptAssests = new Koa();
-OptAssests.use(serve('/opt/sre'));
+const DataAssets = new Koa();
+DataAssets.use(serve('./data'));
 
-module.exports = { DistAssets, PublicAssets, OptAssests };
+module.exports = { DistAssets, PublicAssets, DataAssets };

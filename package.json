@@ -2,7 +2,7 @@
   "scripts": {
     "test": "jest",
     "start": "NODE_ENV=dev node ./backend/index.js",
-    "dev": "NODE_ENV=dev nodemon ./backend/index",
+    "dev": "NODE_ENV=dev nodemon ./backend",
     "build": "webpack --config webpack.dev.js",
     "start-cluster": "node ./backend/cluster.js"
   },
@@ -15,6 +15,7 @@
     "bss": "^1.6.4",
     "cheerio": "^1.0.0-rc.3",
     "faker": "^4.1.0",
+    "form-data": "^3.0.0",
     "got": "^11.5.1",
     "graphql": "^15.4.0",
     "is_js": "^0.9.0",
@@ -41,7 +42,7 @@
   },
   "nodemonConfig": {
     "watch": [
-      "src/*"
+      "backend/*"
     ]
   }
 }

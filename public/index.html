@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <title>Air UI Html Admin Template</title>
+        <title>Med-App</title>
         <link rel="icon" type="image/png" href="/components/kit/core/img/favicon.png" />
         <link href="https://fonts.googleapis.com/css?family=Mukta:400,700,800&display=swap" rel="stylesheet" />
 
@@ -14,13 +14,16 @@
         <link rel="stylesheet" type="text/css" href="/vendors/ladda/dist/ladda-themeless.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/bootstrap-select/dist/css/bootstrap-select.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/select2/dist/css/select2.min.css" />
-        <link rel="stylesheet" type="text/css" href="/vendors/tempus-dominus-bs4/build/css/tempusdominus-bootstrap-4.min.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/vendors/tempus-dominus-bs4/build/css/tempusdominus-bootstrap-4.min.css"
+        />
         <link rel="stylesheet" type="text/css" href="/vendors/fullcalendar/dist/fullcalendar.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/bootstrap-sweetalert/dist/sweetalert.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/summernote/dist/summernote.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/owl.carousel/dist/assets/owl.carousel.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/ionrangeslider/css/ion.rangeSlider.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fc-3.2.5/r-2.2.2/datatables.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/c3/c3.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/chartist/dist/chartist.min.css" />
         <link rel="stylesheet" type="text/css" href="/vendors/nprogress/nprogress.css" />
@@ -54,7 +57,6 @@
         <script src="/vendors/owl.carousel/dist/owl.carousel.min.js"></script>
         <script src="/vendors/ionrangeslider/js/ion.rangeSlider.min.js"></script>
         <script src="/vendors/nestable/jquery.nestable.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/fc-3.2.5/r-2.2.2/datatables.min.js"></script>
         <script src="/vendors/editable-table/mindmup-editabletable.js"></script>
         <script src="/vendors/d3/d3.min.js"></script>
         <script src="/vendors/c3/c3.min.js"></script>
@@ -98,6 +100,8 @@
         <script src="/components/airui/layout/sidebar/index.js"></script>
         <script src="/components/airui/layout/support-chat/index.js"></script>
         <script src="/components/airui/layout/topbar/index.js"></script>
+
+        <script src="/lib/mithril.js"></script>
 
         <!-- PRELOADER STYLES-->
         <style>
@@ -145,19 +149,51 @@
                         <span></span>
                     </div>
                     <a href="javascript: void(0);" class="air__menuLeft__logo">
-                        <div class="air__menuLeft__logo__letter">A</div>
-                        <div class="air__menuLeft__logo__name">AIR UI</div>
-                        <div class="air__menuLeft__logo__descr">Admin Template</div>
+                        <div class="air__menuLeft__logo__letter">D</div>
+                        <div class="air__menuLeft__logo__name">Doctor Assistant</div>
+                        <div class="air__menuLeft__logo__descr"></div>
                     </a>
                     <a href="javascript: void(0);" class="air__menuLeft__user">
                         <div class="air__menuLeft__user__avatar">
-                            <img src="/components/kit/core/img/avatars/avatar.png" alt="David Beckham" />
+                            <img src="/images/bs.png" alt="David Beckham" width="42" height="42" />
                         </div>
-                        <div class="air__menuLeft__user__name">David Beckham</div>
-                        <div class="air__menuLeft__user__role">Administrator</div>
+                        <div class="air__menuLeft__user__name">Nguyễn Văn Nam</div>
+                        <div class="air__menuLeft__user__role">Bác sĩ</div>
                     </a>
                     <div class="air__menuLeft__container kit__customScroll">
                         <ul class="air__menuLeft__list">
+                            <li class="air__menuLeft__category">
+                                <span>Chụp chiếu</span>
+                            </li>
+                            <li class="air__menuLeft__item">
+                                <a href="/#" class="air__menuLeft__link">
+                                    <i class="fe fe-compass air__menuLeft__icon"></i>
+                                    <span>Kiểm tra polyp - Ảnh</span>
+                                </a>
+                            </li>
+                            <li class="air__menuLeft__item">
+                                <a href="/#!/analyze-polyb" class="air__menuLeft__link">
+                                    <i class="fe fe-compass air__menuLeft__icon"></i>
+                                    <span>Kiểm tra polyp - Video</span>
+                                </a>
+                            </li>
+                            <li class="air__menuLeft__category">
+                                <span>Người bệnh</span>
+                            </li>
+                            <li class="air__menuLeft__item">
+                                <a href="/#!/victim" class="air__menuLeft__link air__sidebar__actionToggle">
+                                    <i class="fe fe-settings air__menuLeft__icon"></i>
+                                    <span>Danh sách</span>
+                                </a>
+                            </li>
+
+                            <li class="air__menuLeft__item">
+                                <a href="https://docs.airuitemplate.com" target="_blank" class="air__menuLeft__link">
+                                    <i class="fe fe-compass air__menuLeft__icon"></i>
+                                    <span>Thêm mới</span>
+                                </a>
+                            </li>
+
                             <li class="air__menuLeft__category">
                                 <span>Phiếu khám bệnh</span>
                             </li>
@@ -182,294 +218,28 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="air__menuLeft__container kit__customScroll">
-                        <ul class="air__menuLeft__list">
-                            <li class="air__menuLeft__category">
-                                <span>Bệnh nhân</span>
-                            </li>
-                            <li class="air__menuLeft__item">
-                                <a href="https://docs.airuitemplate.com" target="_blank" class="air__menuLeft__link">
-                                    <i class="fe fe-compass air__menuLeft__icon"></i>
-                                    <span>Thêm mới</span>
-                                </a>
-                            </li>
-
-                            <li class="air__menuLeft__item">
-                                <a href="javascript: void(0)" class="air__menuLeft__link air__sidebar__actionToggle">
-                                    <i class="fe fe-settings air__menuLeft__icon"></i>
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="air__menuLeft__backdrop air__menuLeft__mobileActionToggle"></div>
 
-            <div class="air__layout">
+            <div class="air__layout" id="App">
                 <div class="air__layout__header">
                     <div class="air__utils__header">
-                        <div class="air__topbar">
-                            <div class="air__topbar__searchDropdown dropdown mr-md-4 mr-auto">
-                                <div class="air__topbar__search dropdown-toggle" data-toggle="dropdown" data-offset="5,15">
-                                    <div class="air__topbar__searchContainer">
-                                        <i class="air__topbar__searchIcon fe fe-search"></i>
-                                        <input class="air__topbar__searchInput" type="text" placeholder="Start typing to search..." />
-                                    </div>
-                                </div>
-                                <div class="dropdown-menu" role="menu">
-                                    <div class="kit__l1">
-                                        <div class="text-uppercase font-size-12 mb-2 text-gray-6">Documents (3)</div>
-                                        <ul class="list-unstyled">
-                                            <li class="kit__l1__item">
-                                                <a href="#" class="kit__l1__itemLink">
-                                                    <div class="kit__l1__itemPic mr-3">
-                                                        <i class="kit__l1__itemIcon fe fe-file"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="text-blue">System Requirements.pdf</div>
-                                                        <div class="text-muted">568kb</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="kit__l1__item">
-                                                <a href="#" class="kit__l1__itemLink">
-                                                    <div class="kit__l1__itemPic mr-3">
-                                                        <i class="kit__l1__itemIcon fe fe-file"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="text-blue">Queue Info.pdf</div>
-                                                        <div class="text-muted">1.2mb</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="kit__l1__item">
-                                                <a href="#" class="kit__l1__itemLink">
-                                                    <div class="kit__l1__itemPic mr-3">
-                                                        <i class="kit__l1__itemIcon fe fe-file"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="text-blue">Affected_app.mov</div>
-                                                        <div class="text-muted">67mb</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <div class="text-uppercase font-size-12 mb-2 text-gray-6">Agents (4)</div>
-                                        <ul class="list-unstyled">
-                                            <li class="kit__l1__item">
-                                                <a href="#" class="kit__l1__itemLink">
-                                                    <div class="kit__utils__avatar mr-3">
-                                                        <img src="/components/kit/core/img/avatars/5.jpg" alt="Mary Stanform" />
-                                                    </div>
-                                                    <div>
-                                                        <div class="text-blue">Mary Stanform</div>
-                                                        <div class="text-muted">Sales Manager</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="kit__l1__item">
-                                                <a href="#" class="kit__l1__itemLink">
-                                                    <div class="kit__utils__avatar mr-3">
-                                                        <img src="/components/kit/core/img/avatars/1.jpg" alt="Jamie Rockstar" />
-                                                    </div>
-                                                    <div>
-                                                        <div class="text-blue">Jamie Rockstar</div>
-                                                        <div class="text-muted">Blackoffice Agent</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="dropdown mr-auto d-none d-md-block">
-                                <a href="" class="dropdown-toggle text-nowrap" data-toggle="dropdown" aria-expanded="false" data-offset="0,15">
-                                    <i class="dropdown-toggle-icon fe fe-book-open"></i>
-                                    <span class="dropdown-toggle-text">Issues History</span>
-                                </a>
-                                <div class="dropdown-menu" role="menu">
-                                    <div class="dropdown-header">Active</div>
-                                    <a class="dropdown-item" href="javascript:void(0)">Project Management</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">User Inetrface Development</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Documentation</a>
-                                    <div class="dropdown-header">Inactive</div>
-                                    <a class="dropdown-item" href="javascript:void(0)">Marketing</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="dropdown-icon fe fe-settings"></i>
-                                        Settings
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="mb-0 mr-4 d-xl-block d-none">
-                                Status
-                                <span class="ml-1 badge bg-danger text-white font-size-12 text-uppercase air__topbar__status">Trialing</span>
-                            </p>
-                            <div class="dropdown mr-4 d-none d-sm-block">
-                                <a href="" class="dropdown-toggle text-nowrap" data-toggle="dropdown" data-offset="5,15">
-                                    <span class="dropdown-toggle-text">EN</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <a class="dropdown-item" href="javascript:void(0)"
-                                        ><span class="text-uppercase font-size-12 mr-1 align-text-bottom">EN</span> English</a
-                                    >
-                                    <a class="dropdown-item" href="javascript:void(0)"
-                                        ><span class="text-uppercase font-size-12 mr-1 align-text-bottom">RU</span> Русский</a
-                                    >
-                                    <a class="dropdown-item" href="javascript:void(0)"
-                                        ><span class="text-uppercase font-size-12 mr-1 align-text-bottom">CN</span> 简体中文</a
-                                    >
-                                </div>
-                            </div>
-                            <div class="air__topbar__actionsDropdown dropdown mr-4 d-none d-sm-block">
-                                <a href="" class="dropdown-toggle text-nowrap" data-toggle="dropdown" aria-expanded="false" data-offset="0,15">
-                                    <i class="dropdown-toggle-icon fe fe-menu"></i>
-                                    <span class="dropdown-toggle-text">Actions</span>
-                                </a>
-                                <div class="air__topbar__actionsDropdownMenu dropdown-menu dropdown-menu-right" role="menu">
-                                    <div style="width: 350px">
-                                        <div class="card-header card-header-flex">
-                                            <ul class="nav nav-tabs nav-tabs-line nav-tabs-line-bold nav-tabs-noborder nav-tabs-stretched">
-                                                <li class="nav-item">
-                                                    <a href="#tab-alert-content" class="nav-link active" id="tab-alert" role="button" data-toggle="tab">
-                                                        Alerts
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="#tab-events-content" class="nav-link" id="tab-events" role="button" data-toggle="tab"> Events </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="#tab-actions-content" class="nav-link" id="tab-actions" role="button" data-toggle="tab">
-                                                        Actions
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="tab-content">
-                                                <div
-                                                    class="tab-pane fade show active"
-                                                    id="tab-alert-content"
-                                                    role="tabpanel"
-                                                    aria-labelledby="tab-alert-content"
-                                                >
-                                                    <div class="height-300 kit__customScroll">
-                                                        <ul class="list-unstyled">
-                                                            <li class="mb-3">
-                                                                <div class="d-flex align-items-baseline">
-                                                                    <p class="kit__l2__title">
-                                                                        Update Status:
-                                                                        <strong class="text-black">New</strong>
-                                                                    </p>
-                                                                    <span class="kit__l2__span">5 min ago</span>
-                                                                </div>
-                                                                <p class="kit__l2__content text-muted">Mary has approved your quote.</p>
-                                                            </li>
-                                                            <li class="mb-3">
-                                                                <div class="d-flex align-items-baseline">
-                                                                    <p class="kit__l2__title">
-                                                                        Update Status:
-                                                                        <strong class="text-danger">Rejected</strong>
-                                                                    </p>
-                                                                    <span class="kit__l2__span">15 min ago</span>
-                                                                </div>
-                                                                <p class="kit__l2__content text-muted">Mary has declined your quote.</p>
-                                                            </li>
-                                                            <li class="mb-3">
-                                                                <div class="d-flex align-items-baseline">
-                                                                    <p class="kit__l2__title">
-                                                                        Payment Received:
-                                                                        <strong class="text-black">$5,467.00</strong>
-                                                                    </p>
-                                                                    <span class="kit__l2__span">15 min ago</span>
-                                                                </div>
-                                                                <p class="kit__l2__content text-muted">GOOGLE, LLC AUTOMATED PAYMENTS PAYMENT</p>
-                                                            </li>
-                                                            <li class="mb-3">
-                                                                <div class="d-flex align-items-baseline">
-                                                                    <p class="kit__l2__title">
-                                                                        Notification:
-                                                                        <strong class="text-danger">Access Denied</strong>
-                                                                    </p>
-                                                                    <span class="kit__l2__span">5 Hours ago</span>
-                                                                </div>
-                                                                <p class="kit__l2__content text-muted">The system prevent login to your account</p>
-                                                            </li>
-                                                            <li class="mb-3">
-                                                                <div class="d-flex align-items-baseline">
-                                                                    <p class="kit__l2__title">
-                                                                        Payment Received:
-                                                                        <strong class="text-black">$55,829.00</strong>
-                                                                    </p>
-                                                                    <span class="kit__l2__span">1 day ago</span>
-                                                                </div>
-                                                                <p class="kit__l2__content text-muted">GOOGLE, LLC AUTOMATED PAYMENTS PAYMENT</p>
-                                                            </li>
-                                                            <li class="mb-3">
-                                                                <div class="d-flex align-items-baseline">
-                                                                    <p class="kit__l2__title">
-                                                                        Notification:
-                                                                        <strong class="text-danger">Access Denied</strong>
-                                                                    </p>
-                                                                    <span class="kit__l2__span">5 Hours ago</span>
-                                                                </div>
-                                                                <p class="kit__l2__content text-muted">The system prevent login to your account</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="tab-events-content" role="tabpanel" aria-labelledby="tab-alert-content">
-                                                    <div class="text-center py-4 bg-light rounded">No Events Today</div>
-                                                </div>
-                                                <div class="tab-pane fade" id="tab-actions-content" role="tabpanel" aria-labelledby="tab-alert-content">
-                                                    <div class="text-center py-4 bg-light rounded">No Actions Today</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <a href="" class="dropdown-toggle text-nowrap" data-toggle="dropdown" aria-expanded="false" data-offset="5,15">
-                                    <img class="dropdown-toggle-avatar" src="/components/kit/core/img/avatars/avatar-2.png" alt="User avatar" />
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="dropdown-icon fe fe-user"></i>
-                                        Profile
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <div class="dropdown-header">Home</div>
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="dropdown-icon fe fe-chevron-right"></i>
-                                        System Dashboard
-                                    </a>
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="dropdown-icon fe fe-chevron-right"></i>
-                                        User Boards
-                                    </a>
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="dropdown-icon fe fe-chevron-right"></i>
-                                        Issue Navigator
-                                        <span class="badge badge-success font-size-11 ml-2">25 New</span>
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)"> <i class="dropdown-icon fe fe-log-out"></i> Logout </a>
-                                </div>
-                            </div>
-                        </div>
                         <div class="air__subbar">
                             <ul class="air__subbar__breadcrumbs mr-4">
                                 <li class="air__subbar__breadcrumb">
                                     <a href="#" class="air__subbar__breadcrumbLink">Main</a>
                                 </li>
                                 <li class="air__subbar__breadcrumb">
-                                    <a href="#" class="air__subbar__breadcrumbLink air__subbar__breadcrumbLink--current">Dashboard</a>
+                                    <a href="#" class="air__subbar__breadcrumbLink air__subbar__breadcrumbLink--current"
+                                        >Dashboard</a
+                                    >
                                 </li>
                             </ul>
                             <div class="air__subbar__divider mr-4 d-none d-xl-block"></div>
-                            <p class="color-gray-4 text-uppercase font-size-18 mb-0 mr-4 d-none d-xl-block">INV-00125</p>
+                            <p class="color-gray-4 text-uppercase font-size-18 mb-0 mr-4 d-none d-xl-block">
+                                INV-00125
+                            </p>
                             <button class="btn btn-primary btn-with-addon mr-auto text-nowrap d-none d-md-block">
                                 <span class="btn-addon">
                                     <i class="btn-addon-icon fe fe-plus-circle"></i>
@@ -480,9 +250,9 @@
                     </div>
                 </div>
                 <div class="air__layout__content">
-                    <div class="air__utils__content">
+                    <div class="air__utils__content" >
                         <div class="row">
-                            <div class="col-xl-4 col-lg-12">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex flex-wrap flex-column align-items-center">
@@ -528,8 +298,13 @@
                                     <div class="card-body">
                                         <p class="text-dark font-size-48 font-weight-bold mb-2">$29,931</p>
                                         <p class="text-uppercase text-muted mb-3">Revenue today</p>
-                                        <p class="mb-4">Lorem ipsum dolor sit amit,consectetur eiusmdd tempory incididunt ut labore et dolore magna elit</p>
-                                        <a href="javascript: void(0);" class="btn btn-outline-primary mb-1">View history</a>
+                                        <p class="mb-4">
+                                            Lorem ipsum dolor sit amit,consectetur eiusmdd tempory incididunt ut labore
+                                            et dolore magna elit
+                                        </p>
+                                        <a href="javascript: void(0);" class="btn btn-outline-primary mb-1"
+                                            >View history</a
+                                        >
                                     </div>
                                 </div>
                                 <div class="card">
@@ -541,8 +316,8 @@
                                                     <div class="kit__utils__donut kit__utils__donut--danger mr-3"></div>
                                                 </div>
                                                 <div>
-                                                    Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut labore et dolore magna elit enim at
-                                                    minim veniam quis nostrud
+                                                    Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
+                                                    labore et dolore magna elit enim at minim veniam quis nostrud
                                                 </div>
                                             </li>
                                             <li class="kit__l19__item">
@@ -557,7 +332,10 @@
                                                 <div class="kit__l19__itemSeparator">
                                                     <div class="kit__utils__donut kit__utils__donut--danger mr-3"></div>
                                                 </div>
-                                                <div>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut labore et dolore</div>
+                                                <div>
+                                                    Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
+                                                    labore et dolore
+                                                </div>
                                             </li>
                                             <li class="kit__l19__item">
                                                 <div class="kit__l19__itemTime mr-3">13:22</div>
@@ -565,8 +343,8 @@
                                                     <div class="kit__utils__donut kit__utils__donut--danger mr-3"></div>
                                                 </div>
                                                 <div>
-                                                    Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut labore et dolore magna elit enim at
-                                                    minim veniam quis nostrud
+                                                    Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
+                                                    labore et dolore magna elit enim at minim veniam quis nostrud
                                                 </div>
                                             </li>
                                         </ul>
@@ -591,38 +369,68 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-stretch mt-auto">
-                                            <ul class="nav nav-tabs nav-tabs-line nav-tabs-line-bold nav-tabs-noborder nav-tabs-stretched">
+                                            <ul
+                                                class="nav nav-tabs nav-tabs-line nav-tabs-line-bold nav-tabs-noborder nav-tabs-stretched"
+                                            >
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" href="#tab-wall-content" data-toggle="tab" aria-selected="true" id="tab-wall"
+                                                    <a
+                                                        class="nav-link active"
+                                                        href="#tab-wall-content"
+                                                        data-toggle="tab"
+                                                        aria-selected="true"
+                                                        id="tab-wall"
                                                         >Agent Wall</a
                                                     >
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="#tab-messages-content" data-toggle="tab" aria-selected="false" id="tab-messages"
+                                                    <a
+                                                        class="nav-link"
+                                                        href="#tab-messages-content"
+                                                        data-toggle="tab"
+                                                        aria-selected="false"
+                                                        id="tab-messages"
                                                         >Messages</a
                                                     >
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="#tab-settings-content" data-toggle="tab" id="tab-settings">Settings</a>
+                                                    <a
+                                                        class="nav-link"
+                                                        href="#tab-settings-content"
+                                                        data-toggle="tab"
+                                                        id="tab-settings"
+                                                        >Settings</a
+                                                    >
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane fade show active" id="tab-wall-content" role="tabpanel" aria-labelledby="tab-wall-content">
+                                            <div
+                                                class="tab-pane fade show active"
+                                                id="tab-wall-content"
+                                                role="tabpanel"
+                                                aria-labelledby="tab-wall-content"
+                                            >
                                                 <div class="mb-4">
                                                     <div>
                                                         <div class="d-flex flex-nowrap align-items-start pt-4">
-                                                            <div class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start">
-                                                                <img src="/components/kit/core/img/avatars/3.jpg" alt="Mary Stanform" />
+                                                            <div
+                                                                class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start"
+                                                            >
+                                                                <img
+                                                                    src="/components/kit/core/img/avatars/3.jpg"
+                                                                    alt="Mary Stanform"
+                                                                />
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <div class="kit__g15__contentContainer">
                                                                     <div class="d-flex flex-wrap mb-2">
                                                                         <div class="mr-auto">
                                                                             <div class="text-gray-6">
-                                                                                <span class="text-dark font-weight-bold">Helen maggie</span>
+                                                                                <span class="text-dark font-weight-bold"
+                                                                                    >Helen maggie</span
+                                                                                >
                                                                                 posted
                                                                             </div>
                                                                             <div>Few seconds ago</div>
@@ -637,28 +445,53 @@
                                                                                 aria-expanded="false"
                                                                                 >Actions</a
                                                                             >
-                                                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                                                <a class="dropdown-item" href="javascript:void(0)"
-                                                                                    ><i class="dropdown-icon fe fe-edit"></i> Edit Post</a
+                                                                            <div
+                                                                                class="dropdown-menu dropdown-menu-right"
+                                                                                role="menu"
+                                                                            >
+                                                                                <a
+                                                                                    class="dropdown-item"
+                                                                                    href="javascript:void(0)"
+                                                                                    ><i
+                                                                                        class="dropdown-icon fe fe-edit"
+                                                                                    ></i>
+                                                                                    Edit Post</a
                                                                                 >
-                                                                                <a class="dropdown-item" href="javascript:void(0)"
-                                                                                    ><i class="dropdown-icon fe fe-trash"></i> Delete Post</a
+                                                                                <a
+                                                                                    class="dropdown-item"
+                                                                                    href="javascript:void(0)"
+                                                                                    ><i
+                                                                                        class="dropdown-icon fe fe-trash"
+                                                                                    ></i>
+                                                                                    Delete Post</a
                                                                                 >
                                                                                 <div class="dropdown-divider"></div>
-                                                                                <a class="dropdown-item" href="javascript:void(0)"
-                                                                                    ><i class="dropdown-icon fe fe-repeat"></i> Mark as Spam</a
+                                                                                <a
+                                                                                    class="dropdown-item"
+                                                                                    href="javascript:void(0)"
+                                                                                    ><i
+                                                                                        class="dropdown-icon fe fe-repeat"
+                                                                                    ></i>
+                                                                                    Mark as Spam</a
                                                                                 >
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        Lorem ipsum dolor sit amit,consectetur eiusmdd tempory<br />
+                                                                        Lorem ipsum dolor sit amit,consectetur eiusmdd
+                                                                        tempory<br />
                                                                         incididunt ut labore et dolore magna elit
                                                                     </div>
-                                                                    <div class="d-flex flex-wrap justify-content-start align-items-start mb-3">
-                                                                        <a class="text-blue mr-3" href="#"><i class="fe fe-heart mr-1"></i> 61 Likes</a>
+                                                                    <div
+                                                                        class="d-flex flex-wrap justify-content-start align-items-start mb-3"
+                                                                    >
                                                                         <a class="text-blue mr-3" href="#"
-                                                                            ><i class="fe fe-message-square mr-1"></i> 2 Comments</a
+                                                                            ><i class="fe fe-heart mr-1"></i> 61
+                                                                            Likes</a
+                                                                        >
+                                                                        <a class="text-blue mr-3" href="#"
+                                                                            ><i class="fe fe-message-square mr-1"></i> 2
+                                                                            Comments</a
                                                                         >
                                                                     </div>
                                                                 </div>
@@ -666,14 +499,20 @@
                                                                     <div
                                                                         class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start"
                                                                     >
-                                                                        <img src="/components/kit/core/img/avatars/3.jpg" alt="Mary Stanform" />
+                                                                        <img
+                                                                            src="/components/kit/core/img/avatars/3.jpg"
+                                                                            alt="Mary Stanform"
+                                                                        />
                                                                     </div>
                                                                     <div class="flex-grow-1">
                                                                         <div class="kit__g15__contentContainer">
                                                                             <div class="d-flex flex-wrap mb-2">
                                                                                 <div class="mr-auto">
                                                                                     <div class="text-gray-6">
-                                                                                        <span class="text-dark font-weight-bold">Helen maggie</span>
+                                                                                        <span
+                                                                                            class="text-dark font-weight-bold"
+                                                                                            >Helen maggie</span
+                                                                                        >
                                                                                         posted
                                                                                     </div>
                                                                                     <div>Few seconds ago</div>
@@ -688,28 +527,58 @@
                                                                                         aria-expanded="false"
                                                                                         >Actions</a
                                                                                     >
-                                                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-edit"></i> Edit Post</a
+                                                                                    <div
+                                                                                        class="dropdown-menu dropdown-menu-right"
+                                                                                        role="menu"
+                                                                                    >
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-edit"
+                                                                                            ></i>
+                                                                                            Edit Post</a
                                                                                         >
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-trash"></i> Delete Post</a
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-trash"
+                                                                                            ></i>
+                                                                                            Delete Post</a
                                                                                         >
-                                                                                        <div class="dropdown-divider"></div>
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-repeat"></i> Mark as Spam</a
+                                                                                        <div
+                                                                                            class="dropdown-divider"
+                                                                                        ></div>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-repeat"
+                                                                                            ></i>
+                                                                                            Mark as Spam</a
                                                                                         >
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3">
-                                                                                Lorem ipsum dolor sit amit,consectetur eiusmdd tempory<br />
-                                                                                incididunt ut labore et dolore magna elit
+                                                                                Lorem ipsum dolor sit amit,consectetur
+                                                                                eiusmdd tempory<br />
+                                                                                incididunt ut labore et dolore magna
+                                                                                elit
                                                                             </div>
-                                                                            <div class="d-flex flex-wrap justify-content-start align-items-start mb-3">
-                                                                                <a class="text-blue mr-3" href="#"><i class="fe fe-heart mr-1"></i> 61 Likes</a>
+                                                                            <div
+                                                                                class="d-flex flex-wrap justify-content-start align-items-start mb-3"
+                                                                            >
                                                                                 <a class="text-blue mr-3" href="#"
-                                                                                    ><i class="fe fe-message-square mr-1"></i> 2 Comments</a
+                                                                                    ><i class="fe fe-heart mr-1"></i> 61
+                                                                                    Likes</a
+                                                                                >
+                                                                                <a class="text-blue mr-3" href="#"
+                                                                                    ><i
+                                                                                        class="fe fe-message-square mr-1"
+                                                                                    ></i>
+                                                                                    2 Comments</a
                                                                                 >
                                                                             </div>
                                                                         </div>
@@ -719,14 +588,20 @@
                                                                     <div
                                                                         class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start"
                                                                     >
-                                                                        <img src="/components/kit/core/img/avatars/3.jpg" alt="Mary Stanform" />
+                                                                        <img
+                                                                            src="/components/kit/core/img/avatars/3.jpg"
+                                                                            alt="Mary Stanform"
+                                                                        />
                                                                     </div>
                                                                     <div class="flex-grow-1">
                                                                         <div class="kit__g15__contentContainer">
                                                                             <div class="d-flex flex-wrap mb-2">
                                                                                 <div class="mr-auto">
                                                                                     <div class="text-gray-6">
-                                                                                        <span class="text-dark font-weight-bold">Helen maggie</span>
+                                                                                        <span
+                                                                                            class="text-dark font-weight-bold"
+                                                                                            >Helen maggie</span
+                                                                                        >
                                                                                         posted
                                                                                     </div>
                                                                                     <div>Few seconds ago</div>
@@ -741,28 +616,58 @@
                                                                                         aria-expanded="false"
                                                                                         >Actions</a
                                                                                     >
-                                                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-edit"></i> Edit Post</a
+                                                                                    <div
+                                                                                        class="dropdown-menu dropdown-menu-right"
+                                                                                        role="menu"
+                                                                                    >
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-edit"
+                                                                                            ></i>
+                                                                                            Edit Post</a
                                                                                         >
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-trash"></i> Delete Post</a
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-trash"
+                                                                                            ></i>
+                                                                                            Delete Post</a
                                                                                         >
-                                                                                        <div class="dropdown-divider"></div>
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-repeat"></i> Mark as Spam</a
+                                                                                        <div
+                                                                                            class="dropdown-divider"
+                                                                                        ></div>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-repeat"
+                                                                                            ></i>
+                                                                                            Mark as Spam</a
                                                                                         >
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3">
-                                                                                Lorem ipsum dolor sit amit,consectetur eiusmdd tempory<br />
-                                                                                incididunt ut labore et dolore magna elit
+                                                                                Lorem ipsum dolor sit amit,consectetur
+                                                                                eiusmdd tempory<br />
+                                                                                incididunt ut labore et dolore magna
+                                                                                elit
                                                                             </div>
-                                                                            <div class="d-flex flex-wrap justify-content-start align-items-start mb-3">
-                                                                                <a class="text-blue mr-3" href="#"><i class="fe fe-heart mr-1"></i> 61 Likes</a>
+                                                                            <div
+                                                                                class="d-flex flex-wrap justify-content-start align-items-start mb-3"
+                                                                            >
                                                                                 <a class="text-blue mr-3" href="#"
-                                                                                    ><i class="fe fe-message-square mr-1"></i> 2 Comments</a
+                                                                                    ><i class="fe fe-heart mr-1"></i> 61
+                                                                                    Likes</a
+                                                                                >
+                                                                                <a class="text-blue mr-3" href="#"
+                                                                                    ><i
+                                                                                        class="fe fe-message-square mr-1"
+                                                                                    ></i>
+                                                                                    2 Comments</a
                                                                                 >
                                                                             </div>
                                                                         </div>
@@ -773,15 +678,22 @@
                                                     </div>
                                                     <div>
                                                         <div class="d-flex flex-nowrap align-items-start pt-4">
-                                                            <div class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start">
-                                                                <img src="/components/kit/core/img/avatars/3.jpg" alt="Mary Stanform" />
+                                                            <div
+                                                                class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start"
+                                                            >
+                                                                <img
+                                                                    src="/components/kit/core/img/avatars/3.jpg"
+                                                                    alt="Mary Stanform"
+                                                                />
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <div class="kit__g15__contentContainer">
                                                                     <div class="d-flex flex-wrap mb-2">
                                                                         <div class="mr-auto">
                                                                             <div class="text-gray-6">
-                                                                                <span class="text-dark font-weight-bold">Helen maggie</span>
+                                                                                <span class="text-dark font-weight-bold"
+                                                                                    >Helen maggie</span
+                                                                                >
                                                                                 posted
                                                                             </div>
                                                                             <div>Few seconds ago</div>
@@ -796,28 +708,53 @@
                                                                                 aria-expanded="false"
                                                                                 >Actions</a
                                                                             >
-                                                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                                                <a class="dropdown-item" href="javascript:void(0)"
-                                                                                    ><i class="dropdown-icon fe fe-edit"></i> Edit Post</a
+                                                                            <div
+                                                                                class="dropdown-menu dropdown-menu-right"
+                                                                                role="menu"
+                                                                            >
+                                                                                <a
+                                                                                    class="dropdown-item"
+                                                                                    href="javascript:void(0)"
+                                                                                    ><i
+                                                                                        class="dropdown-icon fe fe-edit"
+                                                                                    ></i>
+                                                                                    Edit Post</a
                                                                                 >
-                                                                                <a class="dropdown-item" href="javascript:void(0)"
-                                                                                    ><i class="dropdown-icon fe fe-trash"></i> Delete Post</a
+                                                                                <a
+                                                                                    class="dropdown-item"
+                                                                                    href="javascript:void(0)"
+                                                                                    ><i
+                                                                                        class="dropdown-icon fe fe-trash"
+                                                                                    ></i>
+                                                                                    Delete Post</a
                                                                                 >
                                                                                 <div class="dropdown-divider"></div>
-                                                                                <a class="dropdown-item" href="javascript:void(0)"
-                                                                                    ><i class="dropdown-icon fe fe-repeat"></i> Mark as Spam</a
+                                                                                <a
+                                                                                    class="dropdown-item"
+                                                                                    href="javascript:void(0)"
+                                                                                    ><i
+                                                                                        class="dropdown-icon fe fe-repeat"
+                                                                                    ></i>
+                                                                                    Mark as Spam</a
                                                                                 >
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        Lorem ipsum dolor sit amit,consectetur eiusmdd tempory<br />
+                                                                        Lorem ipsum dolor sit amit,consectetur eiusmdd
+                                                                        tempory<br />
                                                                         incididunt ut labore et dolore magna elit
                                                                     </div>
-                                                                    <div class="d-flex flex-wrap justify-content-start align-items-start mb-3">
-                                                                        <a class="text-blue mr-3" href="#"><i class="fe fe-heart mr-1"></i> 61 Likes</a>
+                                                                    <div
+                                                                        class="d-flex flex-wrap justify-content-start align-items-start mb-3"
+                                                                    >
                                                                         <a class="text-blue mr-3" href="#"
-                                                                            ><i class="fe fe-message-square mr-1"></i> 2 Comments</a
+                                                                            ><i class="fe fe-heart mr-1"></i> 61
+                                                                            Likes</a
+                                                                        >
+                                                                        <a class="text-blue mr-3" href="#"
+                                                                            ><i class="fe fe-message-square mr-1"></i> 2
+                                                                            Comments</a
                                                                         >
                                                                     </div>
                                                                 </div>
@@ -825,14 +762,20 @@
                                                                     <div
                                                                         class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start"
                                                                     >
-                                                                        <img src="/components/kit/core/img/avatars/3.jpg" alt="Mary Stanform" />
+                                                                        <img
+                                                                            src="/components/kit/core/img/avatars/3.jpg"
+                                                                            alt="Mary Stanform"
+                                                                        />
                                                                     </div>
                                                                     <div class="flex-grow-1">
                                                                         <div class="kit__g15__contentContainer">
                                                                             <div class="d-flex flex-wrap mb-2">
                                                                                 <div class="mr-auto">
                                                                                     <div class="text-gray-6">
-                                                                                        <span class="text-dark font-weight-bold">Helen maggie</span>
+                                                                                        <span
+                                                                                            class="text-dark font-weight-bold"
+                                                                                            >Helen maggie</span
+                                                                                        >
                                                                                         posted
                                                                                     </div>
                                                                                     <div>Few seconds ago</div>
@@ -847,28 +790,58 @@
                                                                                         aria-expanded="false"
                                                                                         >Actions</a
                                                                                     >
-                                                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-edit"></i> Edit Post</a
+                                                                                    <div
+                                                                                        class="dropdown-menu dropdown-menu-right"
+                                                                                        role="menu"
+                                                                                    >
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-edit"
+                                                                                            ></i>
+                                                                                            Edit Post</a
                                                                                         >
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-trash"></i> Delete Post</a
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-trash"
+                                                                                            ></i>
+                                                                                            Delete Post</a
                                                                                         >
-                                                                                        <div class="dropdown-divider"></div>
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-repeat"></i> Mark as Spam</a
+                                                                                        <div
+                                                                                            class="dropdown-divider"
+                                                                                        ></div>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-repeat"
+                                                                                            ></i>
+                                                                                            Mark as Spam</a
                                                                                         >
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3">
-                                                                                Lorem ipsum dolor sit amit,consectetur eiusmdd tempory<br />
-                                                                                incididunt ut labore et dolore magna elit
+                                                                                Lorem ipsum dolor sit amit,consectetur
+                                                                                eiusmdd tempory<br />
+                                                                                incididunt ut labore et dolore magna
+                                                                                elit
                                                                             </div>
-                                                                            <div class="d-flex flex-wrap justify-content-start align-items-start mb-3">
-                                                                                <a class="text-blue mr-3" href="#"><i class="fe fe-heart mr-1"></i> 61 Likes</a>
+                                                                            <div
+                                                                                class="d-flex flex-wrap justify-content-start align-items-start mb-3"
+                                                                            >
                                                                                 <a class="text-blue mr-3" href="#"
-                                                                                    ><i class="fe fe-message-square mr-1"></i> 2 Comments</a
+                                                                                    ><i class="fe fe-heart mr-1"></i> 61
+                                                                                    Likes</a
+                                                                                >
+                                                                                <a class="text-blue mr-3" href="#"
+                                                                                    ><i
+                                                                                        class="fe fe-message-square mr-1"
+                                                                                    ></i>
+                                                                                    2 Comments</a
                                                                                 >
                                                                             </div>
                                                                         </div>
@@ -878,14 +851,20 @@
                                                                     <div
                                                                         class="kit__utils__avatar kit__utils__avatar--size64 mr-4 flex-shrink-0 align-self-start"
                                                                     >
-                                                                        <img src="/components/kit/core/img/avatars/3.jpg" alt="Mary Stanform" />
+                                                                        <img
+                                                                            src="/components/kit/core/img/avatars/3.jpg"
+                                                                            alt="Mary Stanform"
+                                                                        />
                                                                     </div>
                                                                     <div class="flex-grow-1">
                                                                         <div class="kit__g15__contentContainer">
                                                                             <div class="d-flex flex-wrap mb-2">
                                                                                 <div class="mr-auto">
                                                                                     <div class="text-gray-6">
-                                                                                        <span class="text-dark font-weight-bold">Helen maggie</span>
+                                                                                        <span
+                                                                                            class="text-dark font-weight-bold"
+                                                                                            >Helen maggie</span
+                                                                                        >
                                                                                         posted
                                                                                     </div>
                                                                                     <div>Few seconds ago</div>
@@ -900,28 +879,58 @@
                                                                                         aria-expanded="false"
                                                                                         >Actions</a
                                                                                     >
-                                                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-edit"></i> Edit Post</a
+                                                                                    <div
+                                                                                        class="dropdown-menu dropdown-menu-right"
+                                                                                        role="menu"
+                                                                                    >
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-edit"
+                                                                                            ></i>
+                                                                                            Edit Post</a
                                                                                         >
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-trash"></i> Delete Post</a
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-trash"
+                                                                                            ></i>
+                                                                                            Delete Post</a
                                                                                         >
-                                                                                        <div class="dropdown-divider"></div>
-                                                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                                                            ><i class="dropdown-icon fe fe-repeat"></i> Mark as Spam</a
+                                                                                        <div
+                                                                                            class="dropdown-divider"
+                                                                                        ></div>
+                                                                                        <a
+                                                                                            class="dropdown-item"
+                                                                                            href="javascript:void(0)"
+                                                                                            ><i
+                                                                                                class="dropdown-icon fe fe-repeat"
+                                                                                            ></i>
+                                                                                            Mark as Spam</a
                                                                                         >
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3">
-                                                                                Lorem ipsum dolor sit amit,consectetur eiusmdd tempory<br />
-                                                                                incididunt ut labore et dolore magna elit
+                                                                                Lorem ipsum dolor sit amit,consectetur
+                                                                                eiusmdd tempory<br />
+                                                                                incididunt ut labore et dolore magna
+                                                                                elit
                                                                             </div>
-                                                                            <div class="d-flex flex-wrap justify-content-start align-items-start mb-3">
-                                                                                <a class="text-blue mr-3" href="#"><i class="fe fe-heart mr-1"></i> 61 Likes</a>
+                                                                            <div
+                                                                                class="d-flex flex-wrap justify-content-start align-items-start mb-3"
+                                                                            >
                                                                                 <a class="text-blue mr-3" href="#"
-                                                                                    ><i class="fe fe-message-square mr-1"></i> 2 Comments</a
+                                                                                    ><i class="fe fe-heart mr-1"></i> 61
+                                                                                    Likes</a
+                                                                                >
+                                                                                <a class="text-blue mr-3" href="#"
+                                                                                    ><i
+                                                                                        class="fe fe-message-square mr-1"
+                                                                                    ></i>
+                                                                                    2 Comments</a
                                                                                 >
                                                                             </div>
                                                                         </div>
@@ -931,27 +940,50 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="javascript: void(0);" class="btn btn-light text-primary d-block mb-3"> Load More </a>
+                                                <a
+                                                    href="javascript: void(0);"
+                                                    class="btn btn-light text-primary d-block mb-3"
+                                                >
+                                                    Load More
+                                                </a>
                                             </div>
-                                            <div class="tab-pane fade" id="tab-messages-content" role="tabpanel" aria-labelledby="tab-messages-content">
+                                            <div
+                                                class="tab-pane fade"
+                                                id="tab-messages-content"
+                                                role="tabpanel"
+                                                aria-labelledby="tab-messages-content"
+                                            >
                                                 <div class="height-300 d-flex flex-column justify-content-end">
                                                     <div class="kit__g14__contentWrapper kit__customScroll">
                                                         <div class="kit__g14__message">
                                                             <div class="kit__g14__messageContent">
-                                                                <div class="text-gray-4 font-size-12 text-uppercase">You, 5 min ago</div>
-                                                                <div>Hi! Anyone here? I want to know how I can buy Air UI?</div>
+                                                                <div class="text-gray-4 font-size-12 text-uppercase">
+                                                                    You, 5 min ago
+                                                                </div>
+                                                                <div>
+                                                                    Hi! Anyone here? I want to know how I can buy Air
+                                                                    UI?
+                                                                </div>
                                                             </div>
                                                             <div class="kit__g14__messageAvatar kit__utils__avatar">
-                                                                <img src="/components/kit/core/img/avatars/avatar-2.png" alt="You" />
+                                                                <img
+                                                                    src="/components/kit/core/img/avatars/avatar-2.png"
+                                                                    alt="You"
+                                                                />
                                                             </div>
                                                         </div>
                                                         <div class="kit__g14__message kit__g14__message--answer">
                                                             <div class="kit__g14__messageContent">
-                                                                <div class="text-gray-4 font-size-12 text-uppercase">Mary, 14 sec ago</div>
+                                                                <div class="text-gray-4 font-size-12 text-uppercase">
+                                                                    Mary, 14 sec ago
+                                                                </div>
                                                                 <div>Please call us + 100 295 000</div>
                                                             </div>
                                                             <div class="kit__g14__messageAvatar kit__utils__avatar">
-                                                                <img src="/components/kit/core/img/avatars/2.jpg" alt="Mary Stanform" />
+                                                                <img
+                                                                    src="/components/kit/core/img/avatars/2.jpg"
+                                                                    alt="Mary Stanform"
+                                                                />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -974,7 +1006,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade" id="tab-settings-content" role="tabpanel" aria-labelledby="tab-settings-content">
+                                            <div
+                                                class="tab-pane fade"
+                                                id="tab-settings-content"
+                                                role="tabpanel"
+                                                aria-labelledby="tab-settings-content"
+                                            >
                                                 <h5 class="text-black mt-4">
                                                     <strong>Personal Information</strong>
                                                 </h5>
@@ -1015,7 +1052,9 @@
                                                             <strong>Profile Avatar</strong>
                                                         </h5>
                                                         <div class="form-group">
-                                                            <label class="form-control-label" for="l6">File Upload</label>
+                                                            <label class="form-control-label" for="l6"
+                                                                >File Upload</label
+                                                            >
                                                             <input type="file" id="l6" />
                                                         </div>
                                                     </div>
@@ -1024,14 +1063,18 @@
                                                             <strong>Profile Background</strong>
                                                         </h5>
                                                         <div class="form-group">
-                                                            <label class="form-control-label" for="l5">File Upload</label>
+                                                            <label class="form-control-label" for="l5"
+                                                                >File Upload</label
+                                                            >
                                                             <input type="file" id="l5" />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-actions">
                                                     <div class="form-group">
-                                                        <button type="button" class="btn width-200 btn-primary mr-3">Submit</button>
+                                                        <button type="button" class="btn width-200 btn-primary mr-3">
+                                                            Submit
+                                                        </button>
                                                         <button type="button" class="btn btn-light">Cancel</button>
                                                     </div>
                                                 </div>
@@ -1049,19 +1092,20 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <p>
-                                        <strong> Air UI Admin Template - Best Solution for Your Next Big App! </strong>
+                                        <strong> Doctor Assistant - Best Solution for Your Next Big App! </strong>
                                     </p>
                                     <p>
-                                        Air UI is a set of modern professional Html / React / Vue and Angular based templates. This is a powerful and super
-                                        flexible tool, which suits best for any kind of web application: Web Sites, Web Applications, Hybrid Apps, CRM, CMS,
+                                        Air UI is a set of modern professional Html / React / Vue and Angular based
+                                        templates. This is a powerful and super flexible tool, which suits best for any
+                                        kind of web application: Web Sites, Web Applications, Hybrid Apps, CRM, CMS,
                                         Admin Panels, etc.
                                     </p>
                                     <p>&copy; 2019 Mediatec Software</p>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="air__footer__logo">
-                                        <div class="air__footer__logo__letter">A</div>
-                                        <div class="air__footer__logo__name">AIR UI</div>
+                                        <div class="air__footer__logo__letter">D</div>
+                                        <div class="air__footer__logo__name">Doctor Assistant</div>
                                         <div class="air__footer__logo__descr">Admin Template</div>
                                     </div>
                                 </div>
@@ -1071,5 +1115,7 @@
                 </div>
             </div>
         </div>
+        <link rel="stylesheet" type="text/css" href="/med-app/custom.css" />
+        <script type="module" src="/med-app/index.js"></script>
     </body>
 </html>

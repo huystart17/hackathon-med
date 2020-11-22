@@ -1,10 +1,10 @@
 const ApiSuccessHandler = {
-    sendJson(ctx, msg = '', data = {}) {
+    sendJson(ctx, message = '', data = {}) {
         ctx.status = 200;
         ctx.body = {
-            msg, data
+            message,
+            data,
         };
-
-    }
+    },
 };
 module.exports = { ApiSuccessHandler };
